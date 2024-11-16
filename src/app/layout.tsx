@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto_Mono } from "next/font/google";
+
 import "./globals.css";
+import "easymde/dist/easymde.min.css";
 
 const roboto = Roboto_Mono({
   weight: ["100", "300", "400", "500", "700"],

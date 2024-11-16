@@ -1,26 +1,18 @@
 import SearchForm from "@/components/SearchForm";
-import StartupCard from "@/components/StartupCard";
+import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
+
+import { sanityFetch, SanityLive } from "@/sanity/lib/live";
+import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 
 type HomeProps = {
   searchParams: Promise<{ query?: string }>;
 };
 
-const posts = [
-  {
-    _id: 1,
-    title: "Startup 1",
-    description: "Descrição da Startup 1",
-    image:
-      "https://www.fumec.br/wp-content/uploads/2024/07/team_party2-01-scaled.jpg",
-    views: 10,
-    category: "Tecnologia",
-    createdAt: new Date(),
-    author: { _id: 1, name: "John Doe" },
-  },
-];
-
 export default async function Home({ searchParams }: HomeProps) {
   const { query } = await searchParams;
+  const params = { search: query || null };
+
+  const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
 
   return (
     <>
@@ -52,6 +44,8 @@ export default async function Home({ searchParams }: HomeProps) {
           )}
         </ul>
       </section>
+
+      <SanityLive />
     </>
   );
 }

@@ -14,7 +14,7 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
       <div className="flex-between">
         <p className="startup_card_date">{formatDate(post._createdAt)}</p>
         <div className="flex gap-1.5">
-          <EyeIcon className="size-6 text-primary-900" />
+          <EyeIcon className="size-6 text-secondary" />
           <span className="text-16-medium">{post.views}</span>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto_Mono } from "next/font/google";
 
+import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 import "easymde/dist/easymde.min.css";
 
@@ -23,7 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${roboto.variable} font-sans`}>{children}</body>
+      <body className={`${roboto.variable} font-sans`}>
+        {children} <Toaster />
+      </body>
     </html>
   );
 }
